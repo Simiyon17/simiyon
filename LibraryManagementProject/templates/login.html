@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="{% static 'css/log.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="readlog" id="f1" method="post">
+        {% csrf_token %}
+        <h4 style="color:red" align="center">{{data}}</h4>
+        <h3> Login Page</h3>
+
+        <label for="Username">Username</label>
+        <input type="text" placeholder="Username" name="txtname">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" name="txtpwd">
+      <button type="submit" form="f1">Log In</button>
+        <div class="social">
+          <a href="{% url 'sreg' %}" style="text-decoration: none;"><div>Student Register</div></a>&nbsp;
+            <a href="{% url 'areg' %}" style="text-decoration: none;"><div>Admin Register</div></a>
+
+        </div>
+    </form>
+</body>
+</html>

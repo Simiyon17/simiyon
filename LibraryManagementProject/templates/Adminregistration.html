@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Admin Registration</div>
+    <div class="content">
+      <form method="post" action="readadminreg">
+          {% csrf_token %}
+        <h3 style="color:red" align="center">{{data}}</h3>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">UserName</span>
+            <input type="text" placeholder="Enter your name" name="txtname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter your email" name="txtemail" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" name="txtpwd" required>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

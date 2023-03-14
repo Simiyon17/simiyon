@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+   </head>
+<body>
+  <div class="container">
+
+    <div class="title">Student Registration</div>
+
+    <div class="content">
+      <form method="post" action="readstdreg">
+          {% csrf_token %}
+        <h3>{{data}}</h3>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">UserName</span>
+            <input type="text" placeholder="Enter your name" name="txtname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" name="txtmobile" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Semester</span>
+            <input type="text" placeholder="Enter your Semester" name="txtsem" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" name="txtpwd" required>
+          </div>
+        </div>
+        <div class="input-box">
+            <span class="details">Course</span>
+            <select name="ddlcourse">
+              {% for i in course %}
+              <option>{{i.Course_Name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
